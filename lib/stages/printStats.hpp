@@ -1,0 +1,35 @@
+#ifndef HEX_DUMP_H
+#define HEX_DUMP_H
+
+#include "Config.hpp"          // for Config
+#include "Stage.hpp"           // for Stage
+#include "bufferContainer.hpp" // for bufferContainer
+
+#include <stdint.h> // for int32_t
+#include <string>   // for string
+
+/**
+ * @class printStats
+ * @brief Prints out 
+ *
+ * @par Buffers
+ * @buffer in_buf The buffer to print the contents of.
+ *     @buffer_format any
+ *     @buffer_metadata any
+ *
+ * @conf    len     Default 128.  The number of bytes to print.
+ * @conf    offset  Default 0.    The offset into the frame.
+ */
+class printStats : public kotekan::Stage {
+public:
+    printStats(kotekan::Config& config, const std::string& unique_name,
+            kotekan::bufferContainer& buffer_container);
+    ~printStats();
+    void main_thread() override;
+
+private:
+    struct Buffer* in_buf;
+    std::string datatype;
+};
+
+#endif

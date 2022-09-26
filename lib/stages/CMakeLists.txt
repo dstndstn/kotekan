@@ -74,7 +74,8 @@ add_library(
     testDataGen.cpp
     DPDKShuffleSimulate.cpp
     BadInputFlag.cpp
-    hexDump.cpp)
+    hexDump.cpp
+    printStats.cpp)
 
 target_include_directories(kotekan_stages PRIVATE .)
 
